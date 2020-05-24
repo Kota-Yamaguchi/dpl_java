@@ -26,4 +26,17 @@ public class ActivateFunction {
 			return y;
 		}
 
+		public static double[] softmax(double[] x) {
+			double[] y = new double[x.length];
+			double sum = 0;
+			for (int i=0;i<x.length;i++) {
+				y[i] = Math.exp(x[i]);
+				sum+=y[i];
+			}
+
+			for (int i=0; i<x.length;i++) {
+				y[i] = y[i]/sum;
+			}
+			return y;
+		}
 }
