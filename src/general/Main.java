@@ -1,16 +1,27 @@
 package general;
 
+import java.io.IOException;
+
 import activation.Sigmoid;
 import neurolayer.Layer;
 public class Main {
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
+		int row=0;
+		int col=0;
+		double[][] feature = null;
+		try {
+			row = sample.imageInput().length;
+			col = sample.imageInput()[0].length;
+			feature = new double[row][col];
+		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		System.out.println(col);
+//		double[] input = RandomG.randomArray(32);
 
-		double[] input = RandomG.randomArray(32);
 
-		Layer lay1 = new Layer(32,16,input);
+		Layer lay1 = new Layer(row,col,feature[0]);
 		double[] input2 = lay1.affine();
 		Sigmoid act1 = new Sigmoid(input2);
 		double[] output1 = act1.forward();
