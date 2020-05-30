@@ -44,8 +44,17 @@ public class sample {
 		int number = dfile.readInt();
 		int[] label = new int[number];
 		for (int i=0; i<number;i++) {
-			label[i] = dfile.readInt();
+			label[i] = dfile.readUnsignedByte();
 		}
+
+		bfile.close();
+//       zipfile.close();
+        dfile.close();
+        System.out.println("read");
 		return label;
+	}
+
+	private static double[] oneHotLabel(int) {
+
 	}
 }
